@@ -13,7 +13,7 @@
 <body>
  <?php   
  //var_dump($_SESSION['cart']); 
-  //var_dump($_REQUEST); odebranie id z inputa produktu bez sesji
+  //var_dump($_REQUEST); 
   if(isset($_REQUEST{'id'}))
     {      
             if(isset($_SESSION{'cart'}))

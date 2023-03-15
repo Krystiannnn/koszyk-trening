@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Czas generowania: 30 Paź 2022, 14:22
+-- Czas generowania: 15 Mar 2023, 19:44
 -- Wersja serwera: 10.4.24-MariaDB
 -- Wersja PHP: 8.1.6
 
@@ -30,17 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `food` (
   `id` int(11) NOT NULL,
   `name` text COLLATE utf8mb4_polish_ci NOT NULL,
-  `price` float NOT NULL
+  `price` float NOT NULL,
+  `Image` text COLLATE utf8mb4_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
 -- Zrzut danych tabeli `food`
 --
 
-INSERT INTO `food` (`id`, `name`, `price`) VALUES
-(1, 'Pizza Margheritta', 50),
-(2, 'Pizza Hawajska', 57),
-(3, 'Pizza Farmerska', 19);
+INSERT INTO `food` (`id`, `name`, `price`, `Image`) VALUES
+(1, 'Pizza Margheritta', 50, 'malysz.jpg'),
+(2, 'Pizza Hawajska', 57, 'malysz.jpg'),
+(3, 'Pizza Farmerska', 19, 'malysz.jpg'),
+(4, 'lesna', 100, 'malysz.jpg');
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,11 @@ INSERT INTO `orderedFood` (`id`, `orderId`, `foodId`) VALUES
 (6, 17, 3),
 (7, 18, 1),
 (8, 18, 1),
-(9, 18, 3);
+(9, 18, 3),
+(10, 19, 1),
+(11, 20, 1),
+(12, 20, 4),
+(13, 20, 2);
 
 -- --------------------------------------------------------
 
@@ -94,7 +100,9 @@ INSERT INTO `zamowienie` (`id`, `firstName`, `lastName`, `address`, `phone`) VAL
 (15, 'qqqqqqqq', 'wwwwwwww', 'eeeeeeee', '333333333333'),
 (16, 'gdgdgddg', 'sdcdc', 'qadqqwd', '1111111111111111'),
 (17, 'qs', 'qs', 'ss', '543'),
-(18, 'Jan', 'Jancio', 'Wiocha', '997');
+(18, 'Jan', 'Jancio', 'Wiocha', '997'),
+(19, 'asas', 'aasxax', 'axsax', 'axsax'),
+(20, 'ddddddd', 'ddddddd', 'dddddddd', 'ddddddddd');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -128,19 +136,19 @@ ALTER TABLE `zamowienie`
 -- AUTO_INCREMENT dla tabeli `food`
 --
 ALTER TABLE `food`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT dla tabeli `orderedFood`
 --
 ALTER TABLE `orderedFood`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT dla tabeli `zamowienie`
 --
 ALTER TABLE `zamowienie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Ograniczenia dla zrzutów tabel
